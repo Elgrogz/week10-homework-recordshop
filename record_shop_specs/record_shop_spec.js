@@ -26,6 +26,10 @@ describe('Record', function() {
     assert.deepEqual([], recordShop.records);
   });
 
+  it('bank balance should start at 0', function() {
+    assert.equal(0, recordShop.bankBalance);
+  });
+
 
 
 })
