@@ -11,7 +11,11 @@ describe('Record', function() {
   beforeEach(function() {
     record1 = new Record("Californication", "Red Hot Chili Peppers", 10);
     record2 = new Record("Good Kid, Mad City", "Kendrick Lamar", 15);
-    recordShop = new RecordShop("GG's records", "Dunfermline");
+    recordShop = new RecordShop("GG's Records", "Dunfermline");
+  });
+
+  it('should have a name', function() {
+    assert.equal("GG's Records", recordShop.name);
   });
 
 
