@@ -15,7 +15,12 @@ RecordShop.prototype = {
   //   })
   //   return inventory;
   // }
-  
+  sellRecord: function(record) {
+    this.bankBalance += record.price;
+
+    var recordToRemove = this.records.indexOf(record);
+    this.records.splice(recordToRemove, 1);
+  }
 }
 
 module.exports = RecordShop;

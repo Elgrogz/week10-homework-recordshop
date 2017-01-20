@@ -42,6 +42,16 @@ describe('Record', function() {
     assert.deepEqual([record1, record2], recordShop.records);
   });
 
+  it('can sell a record', function() {
+    recordShop.addRecord(record1);
+    recordShop.addRecord(record2);
+    recordShop.sellRecord(record1);
+    assert.equal(10, recordShop.bankBalance);
+    recordShop.sellRecord(record2);
+    assert.equal(25, recordShop.bankBalance);
+    assert.deepEqual([], recordShop.records)
+  });
+
 
 
 })
