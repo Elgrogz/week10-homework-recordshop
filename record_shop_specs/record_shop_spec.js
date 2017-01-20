@@ -24,10 +24,22 @@ describe('Record', function() {
   
   it('records array should start empty', function() {
     assert.deepEqual([], recordShop.records);
+    assert.equal(0, recordShop.records.length);
   });
 
   it('bank balance should start at 0', function() {
     assert.equal(0, recordShop.bankBalance);
+  });
+
+  it('can add records to inventory', function() {
+    recordShop.addRecord(record1);
+    assert.equal(1, recordShop.records.length);
+  });
+
+  it('should list inventory', function() {
+    recordShop.addRecord(record1);
+    recordShop.addRecord(record2);
+    assert.deepEqual([record1, record2], recordShop.records);
   });
 
 
