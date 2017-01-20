@@ -37,6 +37,11 @@ describe('Record', function() {
   it('can buy record', function() {
     collector.buyRecord(record1, recordShop);
     assert.deepEqual([record3, record1], collector.recordCollection);
-  })
+    assert.equal(2, collector.funds);
+  });
+
+  it('cannot buy record if insufficient funds', function() {
+    assert.equal("Insufficient funds", collector.buyRecord(record2));
+  });
 
 })
