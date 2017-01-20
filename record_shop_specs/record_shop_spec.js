@@ -21,6 +21,10 @@ describe('Record', function() {
   it('should have a city', function() {
     assert.equal("Dunfermline", recordShop.city);
   });
+  
+  it('records array should start empty', function() {
+    assert.deepEqual([], recordShop.records);
+  });
 
 
 
