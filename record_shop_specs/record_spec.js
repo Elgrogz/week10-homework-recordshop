@@ -19,11 +19,9 @@ describe('Record', function() {
     assert.equal("Red Hot Chili Peppers", record1.artist);
   });
 
-  it('should have a cost', function() {
-    assert.equal(10, record1.cost);
+  it('should have a price', function() {
+    assert.equal(10, record1.price);
   });
-
-
 
 
 })
