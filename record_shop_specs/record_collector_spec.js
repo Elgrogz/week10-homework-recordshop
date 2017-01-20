@@ -19,6 +19,7 @@ describe('Record', function() {
     recordShop = new RecordShop("GG's Records", "Dunfermline");
     recordShop.addRecord(record1);
     recordShop.addRecord(record2);
+    collector.addRecord(record3);
   });
 
   it('should have a name', function() {
@@ -30,12 +31,12 @@ describe('Record', function() {
   });
 
   it('can add record', function() {
-    collector.addRecord(record3);
     assert.deepEqual([record3], collector.recordCollection);
   });
 
   it('can buy record', function() {
-    
+    collector.buyRecord(record1, recordShop);
+    assert.deepEqual([record3, record1], collector.recordCollection);
   })
 
 })

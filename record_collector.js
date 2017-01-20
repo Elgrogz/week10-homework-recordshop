@@ -9,7 +9,12 @@ RecordCollector.prototype = {
     this.recordCollection.push(record);
   },
   buyRecord: function(record, shop) {
-
+    if (this.funds > record.price) {this.recordCollection.push(record);
+      this.funds -= record.price;
+      shop.sellRecord(record);
+    } else {
+      return "Insufficient funds";
+    }
   },
   // sellRecord: function() {
 
