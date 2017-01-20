@@ -27,8 +27,8 @@ describe('Record', function() {
     assert.equal(0, recordShop.records.length);
   });
 
-  it('bank balance should start at 0', function() {
-    assert.equal(0, recordShop.bankBalance);
+  it('bank balance should start at 100', function() {
+    assert.equal(100, recordShop.bankBalance);
   });
 
   it('can add records to inventory', function() {
@@ -46,10 +46,16 @@ describe('Record', function() {
     recordShop.addRecord(record1);
     recordShop.addRecord(record2);
     recordShop.sellRecord(record1);
-    assert.equal(10, recordShop.bankBalance);
+    assert.equal(110, recordShop.bankBalance);
     recordShop.sellRecord(record2);
-    assert.equal(25, recordShop.bankBalance);
+    assert.equal(125, recordShop.bankBalance);
     assert.deepEqual([], recordShop.records)
+  });
+
+  it('can get total financial assets of shop', function() {
+    recordShop.addRecord(record1);
+    recordShop.addRecord(record2);
+    assert.equal(125, recordShop.getFinancials());
   });
 
 
