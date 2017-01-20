@@ -18,6 +18,10 @@ describe('Record', function() {
     assert.equal("GG's Records", recordShop.name);
   });
 
+  it('should have a city', function() {
+    assert.equal("Dunfermline", recordShop.city);
+  });
+
 
 
 })
