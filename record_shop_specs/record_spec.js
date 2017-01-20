@@ -15,6 +15,10 @@ describe('Record', function() {
     assert.equal("Californication", record1.title);
   });
 
+  it('should have an artist', function() {
+    assert.equal("Red Hot Chili Peppers", record1.artist);
+  });
+
 
 
 
