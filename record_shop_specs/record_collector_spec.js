@@ -31,17 +31,18 @@ describe('Record', function() {
   });
 
   it('can add record', function() {
-    assert.deepEqual([record3], collector.recordCollection);
+    assert.deepEqual([record3], collector.records);
   });
 
   it('can buy record', function() {
     collector.buyRecord(record1, recordShop);
-    assert.deepEqual([record3, record1], collector.recordCollection);
+    assert.deepEqual([record3, record1], collector.records);
     assert.equal(2, collector.funds);
   });
 
   it('cannot buy record if insufficient funds', function() {
-    assert.equal("Insufficient funds", collector.buyRecord(record2));
+    assert.equal("Insufficient funds", collector.buyRecord(record2, recordShop));
   });
 
+  // it('can sell record')
 })

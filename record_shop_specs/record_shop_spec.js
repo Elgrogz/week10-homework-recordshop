@@ -1,5 +1,6 @@
 var Record = require('../record');
 var RecordShop = require('../record_shop');
+var RecordCollector = require('../record_collector');
 var assert = require('assert');
 
 describe('Record', function() {
@@ -7,11 +8,16 @@ describe('Record', function() {
   var record1;
   var record2;
   var recordShop;
+  var collector;
+
 
   beforeEach(function() {
     record1 = new Record("Californication", "Red Hot Chili Peppers", 10);
     record2 = new Record("Good Kid, Mad City", "Kendrick Lamar", 15);
+    record3 = new Record("A.M", "Arctic Monkeys", 20);
     recordShop = new RecordShop("GG's Records", "Dunfermline");
+    collector = new RecordCollector("Gregor", 12);
+    collector.addRecord(record3);
   });
 
   it('should have a name', function() {
@@ -56,6 +62,14 @@ describe('Record', function() {
     recordShop.addRecord(record1);
     recordShop.addRecord(record2);
     assert.equal(125, recordShop.getFinancials());
+  });
+
+  it('shop can buy record', function() {
+    recordShop.addRecord(record1);
+    recordShop.addRecord(record2);
+    recordShop.buyRecord(record3, collector);
+    assert.deepEqual([record1, record2, record3], recordShop.records);
+    assert.equal(80, recordShop.bankBalance);
   });
 
 
